@@ -11,7 +11,7 @@ module SavingsAccount
   end
 
   def self.annual_balance_update(balance)
-   balance + (balance.abs * interest_rate(balance) / 100)
+   balance + (balance * interest_rate(balance).abs / 100)
   end
 
   def self.interest_rate(balance)
