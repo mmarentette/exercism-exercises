@@ -1,4 +1,4 @@
-class Port
+module Port
   IDENTIFIER = :PALE
 
   def self.get_identifier(port)
