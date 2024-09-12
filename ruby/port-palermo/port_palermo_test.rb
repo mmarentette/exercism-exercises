@@ -23,22 +23,22 @@ class PortPalermoTest < Minitest::Test
   end
 
   def test_get_terminal_for_oil
-    skip
+    # skip
     assert_equal :A, Port.get_terminal(:OIL123)
-  end
 
+  end
   def test_get_terminal_for_gas
-    skip
+    # skip
     assert_equal :A, Port.get_terminal(:GAS674)
   end
 
   def test_get_terminal_for_cars
-    skip
+    # skip
     assert_equal :B, Port.get_terminal(:CAR942)
   end
 
   def test_get_terminal_for_clothes
-    skip
+    # skip
     assert_equal :B, Port.get_terminal(:CLO315)
   end
 end
