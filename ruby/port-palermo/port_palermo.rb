@@ -8,8 +8,12 @@ module Port
   end
 
   def get_terminal(ship_identifier)
-    cargo = ship_identifier[..2]
+    %w[OIL GAS].include?(cargo_of(ship_identifier)) ? :A : :B
+  end
 
-    %w[OIL GAS].include?(cargo) ? :A : :B
+  private
+
+  def cargo_of(ship_identifier)
+    ship_identifier[..2]
   end
 end
