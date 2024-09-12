@@ -10,6 +10,6 @@ module Port
   def get_terminal(ship_identifier)
     cargo = ship_identifier[..2]
 
-    ["OIL", "GAS"].include?(cargo) ? :A : :B
+    %w[OIL GAS].include?(cargo) ? :A : :B
   end
 end
