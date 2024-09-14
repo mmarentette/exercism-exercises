@@ -81,6 +81,14 @@ class BoutiqueInventoryTest < Minitest::Test
     assert_equal [coat, handkerchief], BoutiqueInventory.new(items).out_of_stock
   end
 
+  def test_stock_for_invalid_item
+    # skip
+    shoes = { price: 30.00, name: "Shoes", quantity_by_size: {} }
+    coat = { price: 65.00, name: "Coat", quantity_by_size: {} }
+    items = [shoes, coat]
+    assert_nil(BoutiqueInventory.new(items).stock_for_item("Mittens"))
+  end
+
   def test_stock_for_out_of_stock
     # skip
     shoes = { price: 30.00, name: "Shoes", quantity_by_size: {} }

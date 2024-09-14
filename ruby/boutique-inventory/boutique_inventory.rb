@@ -18,7 +18,9 @@ class BoutiqueInventory
   end
 
   def stock_for_item(item_name)
-    find_item(item_name)[:quantity_by_size]
+    item = find_item(item_name)
+
+    item[:quantity_by_size] if item
   end
 
   def total_stock
