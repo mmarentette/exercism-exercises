@@ -1,9 +1,9 @@
 class BirdCount
+  attr_reader :birds_per_day
+  
   def self.last_week
     [0, 2, 5, 3, 7, 8, 4]
   end
-  
-  attr_reader :birds_per_day
 
   def initialize(birds_per_day)
     @birds_per_day = birds_per_day
