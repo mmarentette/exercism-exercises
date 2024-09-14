@@ -17,13 +17,19 @@ class BoutiqueInventory
     items.select { |item| item[:quantity_by_size].empty? }
   end
 
-  def stock_for_item(name)
-    (items.find { |item| item[:name] == name })[:quantity_by_size]
+  def stock_for_item(item_name)
+    find_item(item_name)[:quantity_by_size]
   end
 
   def total_stock
     items.flat_map do |item|
       item[:quantity_by_size].values
     end.sum
+  end
+
+  private
+
+  def find_item(item_name)
+    item = items.find { |item| item[:name] == item_name }
   end
 end
