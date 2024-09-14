@@ -22,8 +22,8 @@ class BoutiqueInventory
   end
 
   def total_stock
-    items.map do |item|
-      item[:quantity_by_size].map { |_, q| q }
-    end.flatten.sum
+    items.flat_map do |item|
+      item[:quantity_by_size].values
+    end.sum
   end
 end
