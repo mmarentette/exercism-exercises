@@ -1,20 +1,17 @@
 require 'ostruct'
 
-class BoutiqueInventory
+class BoutiqueInventory 
   attr_reader :items
 
   def initialize(items)
-    @items = items.map { |i| OpenStruct.new(i) }
+    @items = items.map { |item| OpenStruct.new(item) }
   end
 
   def item_names
-    items.map(&:name)
-      .sort
+    items.map(&:name).sort
   end
 
   def total_stock
-    items.map(&:quantity_by_size)
-      .flat_map(&:values)
-      .sum
+    items.sum { |item| item.quantity_by_size.values.sum }
   end
 end
